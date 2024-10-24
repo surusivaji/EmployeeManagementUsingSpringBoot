@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Employee Management System - Display Employees</title>
+   	<link rel="icon" th:href="@{/images/logo.png}">
+    <style type="text/css">
+    	#icon {
+    		padding-left: 10px;
+    	}
+    	#icon i {
+    		padding-right: 3px;
+    	}
+    	#navbarText {
+    		padding-right: 8px;
+    	}
+    	#addemp {
+    		padding-left: 20px;
+    		position:relative;
+    		left: -5px;
+    	}
+    	#addemp i {
+    		padding-right: 2px;
+    	}
+    	#displayemp i {
+    		padding-right: 2px;
+    	}
+    	#table-container {
+    		animation-name: animateTable;
+    		animation-duration: 0.5s;
+    		animation-timing-function: ease-in;
+    	}
+    	@keyframes animateTable {
+    		from {
+    			transform: scale(0);
+    		}
+    		to {
+    			transform: scale(1);
+    		}
+    	}
+    </style>
+</head>
+<body class="bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<div class="container-fluid p-1">
+    		<a class="navbar-brand fw-bolder fs-3" id="icon" th:href="@{/employeemanagementsystem/}"><i class="fa-solid fa-briefcase"></i>Employee Management System</a>
+    		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      			<span class="navbar-toggler-icon"></span>
+    		</button>
+    		<div class="collapse navbar-collapse" id="navbarText">
+      			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        			<li class="nav-item">
+        				<a class="nav-link active fw-bolder fs-5" id="addemp" th:href="@{/employeemanagementsystem/addemployee}"><i class="fa-solid fa-plus"></i>Add Employee</a>
+     				</li>
+        			<li class="nav-item">
+          				<a class="nav-link active fw-bolder fs-5" id="displayemp" th:href="@{/employeemanagementsystem/displayemployees}"><i class="fa-solid fa-display"></i>Display Employees</a>
+        			</li>
+      			</ul>
+    		</div>
+  		</div>
+	</nav>
+	
+	<!-- Display all employees -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<div class="card p-3 mt-4" id="table-container">
+					<h2 class="text-center fw-bolder text-danger">Display Employees</h2>
+					<table class="table table-striped table-hover mt-2 table-responsive">
+						<tr class="bg-primary text-light">
+							<th>Id</th>
+							<th>Name</th>
+							<th>Designation</th>
+							<th>Email</th>
+							<th>Mobile</th>
+							<th>Salary</th>
+							<th>Deptno</th>
+							<th>Actions</th>
+						</tr>
+						<tr th:each="employee:${employees}">
+							<td th:text="${employee.id}"></td>
+							<td th:text="${employee.name}"></td>
+							<td th:text="${employee.designation}"></td>
+							<td th:text="${employee.email}"></td>
+							<td th:text="${employee.mobile}"></td>
+							<td th:text="${employee.salary}"></td>
+							<td th:text="${employee.deptno}"></td>
+							<td><a th:href="@{/employeemanagementsystem/editemployee/{id}(id=${employee.id})}" class="btn btn-success">Edit</a>
+								<a th:href="@{/employeemanagementsystem/remove/{id}(id=${employee.id})}" class="btn btn-danger">Danger</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></body>
+</html>
