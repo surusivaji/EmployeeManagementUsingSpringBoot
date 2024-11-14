@@ -18,3 +18,33 @@
   <li><b>Display Employee: </b> List all employees in the system. </li>
   <li><b>Delete Employee: </b> Removes an employee's record from the database</li>
 </ul>
+
+<hr>
+<h2 align="center">📷 Screenshots</h2>
+<div align="center">
+  <div>
+    <img src="index.png" alt="Index Page" width="70%">
+    <p>Index Page</p>
+  </div>
+
+  <div>
+    <img src="displayemployee.png" alt="Display Employees" width="70%">
+    <p>Display Employees</p>
+  </div>
+
+   <div>
+    <img src="addemployee.png" alt="add employee" width="70%">
+    <p>Add Employee</p>
+  </div>
+
+  <div>
+    <img src="editemployee.png" alt="edit employee" width="70%">
+    <p>Update Employee</p>
+  </div>
+
+   <div>
+    <img src="deleteemployee.png" alt="delete employee" width="70%">
+    <p>Delete Employee</p>
+  </div>
+  
+
